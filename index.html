@@ -7,7 +7,6 @@
   <meta name="description" content="Ekskluzywna wirtualna podróż do Mediolanu.">
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIINfQ3sYlZ0q9Q2s8x7rR7m8d7s6mJ4m5k="
     crossorigin="">
   <style>
     :root{
@@ -190,7 +189,18 @@
           jak wygląda naprawdę. Prosimy nie próbować wejść w ekran.
         </div>
 
-        <div class="route-grid" id="stops"></div>
+        
+        <div class="route-grid" id="stops">
+          <article class="stop" onclick="openStop(0)"><img src="./01-duomo.jpg" alt="Duomo di Milano"><div class="stop-body"><div class="stop-no">01 / MILANO TOUR™</div><h3 class="serif">Duomo di Milano</h3><p>Symbol Mediolanu.</p><div class="mini"><span class="pill">📍 45.4642, 9.1916</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+          <article class="stop" onclick="openStop(1)"><img src="./02-galleria.jpg" alt="Galleria Vittorio Emanuele II"><div class="stop-body"><div class="stop-no">02 / MILANO TOUR™</div><h3 class="serif">Galleria Vittorio Emanuele II</h3><p>Włoski milioner mode: ON.</p><div class="mini"><span class="pill">📍 45.4659, 9.1900</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+          <article class="stop" onclick="openStop(2)"><img src="./03-la-scala.jpg" alt="Teatro alla Scala"><div class="stop-body"><div class="stop-no">03 / MILANO TOUR™</div><h3 class="serif">Teatro alla Scala</h3><p>Wieczór kulturalny.</p><div class="mini"><span class="pill">📍 45.4671, 9.1898</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+          <article class="stop" onclick="openStop(3)"><img src="./04-castello.jpg" alt="Castello Sforzesco"><div class="stop-body"><div class="stop-no">04 / MILANO TOUR™</div><h3 class="serif">Castello Sforzesco</h3><p>Książę Mediolanu.</p><div class="mini"><span class="pill">📍 45.4707, 9.1796</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+          <article class="stop" onclick="openStop(4)"><img src="./05-santa-maria.jpg" alt="Santa Maria delle Grazie"><div class="stop-body"><div class="stop-no">05 / MILANO TOUR™</div><h3 class="serif">Santa Maria delle Grazie</h3><p>Śladami Leonarda.</p><div class="mini"><span class="pill">📍 45.4660, 9.1704</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+          <article class="stop" onclick="openStop(5)"><img src="./06-navigli.jpg" alt="Navigli"><div class="stop-body"><div class="stop-no">06 / MILANO TOUR™</div><h3 class="serif">Navigli</h3><p>Aperitivo time.</p><div class="mini"><span class="pill">📍 45.4501, 9.1750</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+          <article class="stop" onclick="openStop(6)"><img src="./07-gae-aulenti.jpg" alt="Piazza Gae Aulenti"><div class="stop-body"><div class="stop-no">07 / MILANO TOUR™</div><h3 class="serif">Piazza Gae Aulenti</h3><p>Milano 2.0.</p><div class="mini"><span class="pill">📍 45.4800, 9.1875</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+          <article class="stop" onclick="openStop(7)"><img src="./08-arco.jpg" alt="Arco della Pace"><div class="stop-body"><div class="stop-no">08 / MILANO TOUR™</div><h3 class="serif">Arco della Pace</h3><p>Wielki finał.</p><div class="mini"><span class="pill">📍 45.4764, 9.1715</span><span class="pill">0 €</span><span class="pill">Street View</span></div></div></article>
+        </div>
+
       </div>
     </section>
 
@@ -252,91 +262,76 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
   <script>
     const stops = [
       {
         n:"01", title:"Duomo di Milano", short:"Symbol Mediolanu.",
-        img:"./01-duomo.jpg", coords:[45.4642,9.1916],
+        img:"assets/01-duomo.jpg", coords:[45.4642,9.1916],
         text:"Pierwszy przystanek naszej podróży. [Imię] właśnie dotarł do jednej z najbardziej charakterystycznych budowli Mediolanu.",
         joke:"Czas podróży: 0 godzin. Przebyta odległość: 0 km. Koszt biletu: 0,00 €. Podejrzanie dobrze się zaczyna."
       },
       {
         n:"02", title:"Galleria Vittorio Emanuele II", short:"Włoski milioner mode: ON.",
-        img:"./02-galleria.jpg", coords:[45.4659,9.1900],
+        img:"assets/02-galleria.jpg", coords:[45.4659,9.1900],
         text:"Wizyta w jednej z najbardziej eleganckich galerii handlowych Europy. Kawa, luksus i spontaniczne wydanie fortuny.",
         joke:"Kawa: 1. Zakupy: 0. Stan konta: bez zmian. Elegancja przede wszystkim. Budżet — później."
       },
       {
         n:"03", title:"Teatro alla Scala", short:"Wieczór kulturalny.",
-        img:"./03-la-scala.jpg", coords:[45.4671,9.1898],
+        img:"assets/03-la-scala.jpg", coords:[45.4671,9.1898],
         text:"Garnitury są. Suknia jest. Opera jest. Czy wiemy, co dzieje się na scenie? Absolutnie nie.",
         joke:"Czy wyglądamy, jakbyśmy wiedzieli? Zdecydowanie tak. La dolce vita, amore. ❤️"
       },
       {
         n:"04", title:"Castello Sforzesco", short:"Książę Mediolanu.",
-        img:"./04-castello.jpg", coords:[45.4707,9.1796],
+        img:"assets/04-castello.jpg", coords:[45.4707,9.1796],
         text:"Po krótkim spacerze [Imię] został mianowany KSIĘCIEM MEDIOLANU.",
         joke:"Kompetencje: odnajdywanie zamków ✓ robienie zdjęć ✓ udawanie, że zna historię ✓ znajomość włoskiego ✕"
       },
       {
         n:"05", title:"Santa Maria delle Grazie", short:"Śladami Leonarda.",
-        img:"./05-santa-maria.jpg", coords:[45.4660,9.1704],
+        img:"assets/05-santa-maria.jpg", coords:[45.4660,9.1704],
         text:"Miejsce związane z Ostatnią Wieczerzą Leonarda da Vinci. Każdy wnosi coś do historii.",
         joke:"Leonardo zostawił po sobie arcydzieło. [Imię] zostawił po sobie zdjęcie na stronie internetowej. Też się liczy."
       },
       {
         n:"06", title:"Navigli", short:"Aperitivo time.",
-        img:"./06-navigli.jpg", coords:[45.4501,9.1750],
+        img:"assets/06-navigli.jpg", coords:[45.4501,9.1750],
         text:"Słońce zachodzi. Kanały błyszczą. Aperol jest. Życie jest piękne.",
         joke:"Jedyny problem: ten Aperol istnieje wyłącznie w świecie cyfrowym. Ale zdjęcie jest bardzo przekonujące."
       },
       {
         n:"07", title:"Piazza Gae Aulenti", short:"Milano 2.0.",
-        img:"./07-gae-aulenti.jpg", coords:[45.4800,9.1875],
+        img:"assets/07-gae-aulenti.jpg", coords:[45.4800,9.1875],
         text:"W pewnym momencie trzeba było sprawdzić, czy Mediolan przypadkiem nie przeniósł się do przyszłości.",
         joke:"Budynki są ogromne. Zieleń jest wszędzie. [Imię] siedzi. Zwiedzanie na najwyższym poziomie."
       },
       {
         n:"08", title:"Arco della Pace", short:"Wielki finał.",
-        img:"./08-arco.jpg", coords:[45.4764,9.1715],
+        img:"assets/08-arco.jpg", coords:[45.4764,9.1715],
         text:"Po całym dniu zwiedzania, sztuki, architektury, pizzy, aperitivo i chodzenia — [Imię] osiągnął najwyższy poziom włoskiego luzu.",
         joke:"MILANO COMPLETED ✓. Street View nie mierzy kroków, więc oficjalnie: spacer zaliczony."
       }
     ];
 
-    const map = L.map('map', {scrollWheelZoom:false}).setView([45.4642,9.1830], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom:19, attribution:'© OpenStreetMap'
-    }).addTo(map);
-
-    const route = L.polyline(stops.map(s=>s.coords), {
-      color:'#9e2d2d', weight:3, opacity:.75, dashArray:'8 8'
-    }).addTo(map);
-
-    stops.forEach((s,i)=>{
-      const marker = L.marker(s.coords).addTo(map);
-      marker.bindPopup(`<strong>${s.n} — ${s.title}</strong><br><button onclick="openStop(${i})" style="margin-top:8px;padding:7px 10px;border:1px solid #333;background:#fff;cursor:pointer">Odwiedź</button>`);
-      marker.on('click',()=>openStop(i));
-    });
-
-    const stopsEl = document.getElementById('stops');
-    stopsEl.innerHTML = stops.map((s,i)=>`
-      <article class="stop" onclick="openStop(${i})">
-        <img src="${s.img}" alt="${s.title}">
-        <div class="stop-body">
-          <div class="stop-no">${s.n} / MILANO TOUR™</div>
-          <h3 class="serif">${s.title}</h3>
-          <p>${s.short}</p>
-          <div class="mini">
-            <span class="pill">📍 ${s.coords[0].toFixed(4)}, ${s.coords[1].toFixed(4)}</span>
-            <span class="pill">0 €</span>
-            <span class="pill">Street View</span>
-          </div>
-        </div>
-      </article>
-    `).join('');
+    if (window.L) {
+      const map = L.map('map', {scrollWheelZoom:false}).setView([45.4642,9.1830], 13);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom:19, attribution:'© OpenStreetMap'
+      }).addTo(map);
+      L.polyline(stops.map(s=>s.coords), {
+        color:'#9e2d2d', weight:3, opacity:.75, dashArray:'8 8'
+      }).addTo(map);
+      stops.forEach((s,i)=>{
+        const marker = L.marker(s.coords).addTo(map);
+        marker.bindPopup(`<strong>${s.n} — ${s.title}</strong><br><button onclick="openStop(${i})" style="margin-top:8px;padding:7px 10px;border:1px solid #333;background:#fff;cursor:pointer">Odwiedź</button>`);
+        marker.on('click',()=>openStop(i));
+      });
+    } else {
+      document.getElementById('map').innerHTML =
+        '<div style="height:100%;display:grid;place-items:center;color:#777;font-size:14px">Mapa chwilowo niedostępna — ale zdjęcia działają. 📍</div>';
+    }
 
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modalImage');
